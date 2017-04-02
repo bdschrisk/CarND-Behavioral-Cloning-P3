@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1a71634a-d42c-4ee7-84df-18b1ddd80298}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>callbacks.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="callbacks.py" />
+    <Compile Include="densenet.py" />
+    <Compile Include="drive.py" />
+    <Compile Include="extensions\backend\tensorflow_backend_ext.py" />
+    <Compile Include="extensions\backend\theano_backend_ext.py" />
+    <Compile Include="extensions\layers\core_extended.py" />
+    <Compile Include="extensions\metrics.py" />
+    <Compile Include="generator.py" />
+    <Compile Include="kanet.py" />
+    <Compile Include="model.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="modelconfig.py" />
+    <Compile Include="modelutils.py" />
+    <Compile Include="video.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="extensions" />
+    <Folder Include="extensions\backend" />
+    <Folder Include="extensions\layers" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="README.md" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
